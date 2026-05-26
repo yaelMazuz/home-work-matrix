@@ -24,6 +24,10 @@ Improved folder organization for better scalability and maintainability.
 🔹 Performance Optimization
 Added trackBy function in blog loops to improve rendering performance and reduce unnecessary DOM re-renders.
 
+🔹 UI Improvements
+
+UI improvements for better user experience, readability, and alignment with the updated data structure
+
 
 🛠️ Server (Backend - C# / API)
 
