@@ -42,9 +42,10 @@ namespace BrokenBlogApi.Controllers
         [HttpPost]
         public IActionResult CreatePost([FromBody] BlogPost post)
         {
+            //Validate post
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
+            //Create post
             var created = _postsService.Create(post);
             return Ok(created);
         }
