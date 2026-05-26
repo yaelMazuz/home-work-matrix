@@ -1,39 +1,47 @@
-# Broken Blog App
+📌 Project Improvements Summary
 
-You are provided with a simple blog application built with Angular (frontend) and .NET Core (backend). 
+This project includes a series of improvements and refactoring on both the client (Angular) and the server (C# / backend API) in order to enhance performance, maintainability, and code structure.
 
-The application shows list of posts retrieved from the server. When clicking on a post its details are shown below the list.
-There is also a simple form to add a new post.
+🖥️ Client (Frontend - Angular)
 
-Your task is:
-#### - To identify and fix  bad implementations
-#### - Improve the code quality
-#### - Ensure the application works as expected.
-#### No new functionality, logic or features need to be added to the application!!! 
+🔹 API Optimization
+Implemented a single API call to retrieve posts using OnInit, avoiding duplicate requests.
+Posts schema is handled within the same request to eliminate redundant network calls.
 
-## Project Structure
-- `frontend/`: Angular application for the blog (Angular CLI version 16.2.5).
-- `backend/`: .NET Core API for the blog.
+🔹 State Management Improvement
+Introduced a global posts count variable.
+Managed via subscription (subscribe) instead of post-processing logic, ensuring data availability at the correct lifecycle stage.
 
-## Assignment Instructions
-1. Set up both the frontend and backend according to their respective `README.md` files.
-2. Identify poor practices in the code and refactor where necessary (e.g., hardcoded values, lack of modularity, error handling,  poor naming conventions, memory leaks..).
- (both frontend and backend).
-3. Add basic validation to the "Create Blog Post" form (e.g., Title and Content should not be empty).
-Ensure API input validation is properly handled on the backend.
-4. Submit your updated code along with a document outlining the changes you made.
+🔹 Forms Enhancement
+Replaced simple form with a reactive form.
+Added:
+Form validations
+Custom error messages for better UX
+
+🔹 Project Structure
+
+Improved folder organization for better scalability and maintainability.
+
+🔹 Performance Optimization
+Added trackBy function in blog loops to improve rendering performance and reduce unnecessary DOM re-renders.
+
+🛠️ Server (Backend - C# / API)
+
+🔹 Architecture Refactoring
+Separated business logic into clean layered architecture (Controller / Service / Logic layers).
+
+🔹 Validation
+Added server-side validation to ensure data integrity and prevent invalid requests.
+
+🔹 Bug Fixes
+Fixed incorrect calculation of TOTAL_CALLS value.
 
 
-## Deliverables
-Provide a short document (or update the README) with:
-1. A list of the issues you identified.
-	What changes you made and why.
-2. Fork the repository to separete repo, provide Pull Request to all changes and approve it.
 
-3. Provide the link to the forked repo (With approved PR).
-
-## Prerequisites
-- Node.js and Angular CLI for the frontend.
-- .NET SDK for the backend.
-
-  
+🚀 Result
+These improvements resulted in:
+Better performance on the client side
+Cleaner and more maintainable backend architecture
+Improved scalability
+Reduced redundant API calls
+Enhanced user experience with proper validation and UI feedback
