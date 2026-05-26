@@ -1,0 +1,98 @@
+/* page */
+:host {
+  display: block;
+  padding: 24px;
+  background: #f5f7fb;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* titles */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* posts */
+.post-card {
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.post-card p {
+  color: #666;
+  line-height: 1.5;
+}
+
+/* form */
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* inputs */
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+  box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #4a90e2;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* buttons */
+button {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #3578c9;
+}
+
+button:disabled {
+  background: #b7c7dd;
+  cursor: not-allowed;
+}
+
+/* validation */
+.error {
+  color: #d93025;
+  font-size: 13px;
+  margin-top: -8px;
+}

@@ -1,4 +1,4 @@
-<h1>Blog Posts</h1>
+<!-- <h1>Blog Posts</h1>
     <div *ngFor="let post of posts$ | async; trackBy: trackByPostId">
     <h2>{{ post.title }}</h2>
       <p>{{ post.description }}</p>
@@ -24,4 +24,61 @@
 
 
   <button type="submit"  [disabled]="newPost.invalid">Submit</button>
+</form> -->
+
+<h1>Blog Posts</h1>
+
+<div
+  class="post-card"
+  *ngFor="let post of posts$ | async; trackBy: trackByPostId"
+>
+  <h2>{{ post.title }}</h2>
+
+  <p>{{ post.description }}</p>
+
+  <button (click)="viewPost(post.id)">
+    View Details
+  </button>
+</div>
+
+<h2>Create New Post</h2>
+
+<form [formGroup]="newPost" (ngSubmit)="createPost()">
+
+  <input
+    formControlName="title"
+    placeholder="Title"
+  >
+
+  <div
+    class="error"
+    *ngIf="newPost.get('title')?.touched && newPost.get('title')?.invalid"
+  >
+    Title is required (min 3 chars)
+  </div>
+
+  <input
+    formControlName="description"
+    placeholder="Description"
+  >
+
+  <textarea
+    formControlName="content"
+    placeholder="Content"
+  ></textarea>
+
+  <div
+    class="error"
+    *ngIf="newPost.get('content')?.touched && newPost.get('content')?.invalid"
+  >
+    Content is required
+  </div>
+
+  <button
+    type="submit"
+    [disabled]="newPost.invalid"
+  >
+    Submit
+  </button>
+
 </form>

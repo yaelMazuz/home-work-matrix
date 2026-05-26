@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
+    styleUrl: './blog.component.scss',
   standalone: true,
   imports: [CommonModule,FormsModule, ReactiveFormsModule],
 })
