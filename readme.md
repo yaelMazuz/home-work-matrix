@@ -34,7 +34,9 @@ Separated business logic into clean layered architecture (Controller / Service /
 Added server-side validation to ensure data integrity and prevent invalid requests.
 
 🔹 Bug Fixes
-Fixed incorrect calculation of TOTAL_CALLS value.
+-Fixed incorrect calculation of TOTAL_CALLS value.
+
+-Improved post ID generation logic by replacing sequential count-based IDs with a max-ID calculation approach to prevent duplicate or invalid IDs in cases where posts were deleted.
 
 
 

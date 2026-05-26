@@ -11,44 +11,37 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-blog',
+    styleUrls: ['./blog.component.css'],
   template: `
+<div class="layout">
+
+  <div class="left">
     <h1>Blog Posts</h1>
+
     <div *ngFor="let post of posts$ | async; trackBy: trackByPostId">
-    <h2>{{ post.title }}</h2>
+      <h2>{{ post.title }}</h2>
       <p>{{ post.description }}</p>
       <button (click)="viewPost(post.id)">View Details</button>
     </div>
+  </div>
 
+  <div class="right">
     <h1>Create New Post</h1>
+
     <form [formGroup]="newPost" (ngSubmit)="createPost()">
-<div class="row title mb-2">
-  <div class="col">
+
       <input formControlName="title" placeholder="Title">
-  <div *ngIf="newPost.get('title')?.touched && newPost.get('title')?.invalid">
-    Title is required (min 3 chars)
-  </div>
-  </div>
-</div>
-
-<div class="row description mb-2">
-  <div class="col">
       <input formControlName="description" placeholder="Description">
-  </div>
-</div>
-
-<div class="row content mb-2">
-  <div class="col">
       <textarea formControlName="content" placeholder="Content"></textarea>
-  <div *ngIf="newPost.get('content')?.touched && newPost.get('content')?.invalid">
-    Content is required (min 1 chars)
+
+      <button type="submit" [disabled]="newPost.invalid">
+        Submit
+      </button>
+
+    </form>
   </div>
-  </div>
+
 </div>
-
-
-  <button type="submit"  [disabled]="newPost.invalid">Submit</button>
-</form>
-  
   `,
   standalone: true,
    imports: [CommonModule,FormsModule, ReactiveFormsModule],
