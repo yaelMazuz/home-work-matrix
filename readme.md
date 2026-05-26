@@ -19,11 +19,11 @@ Form validations
 Custom error messages for better UX
 
 🔹 Project Structure
-
 Improved folder organization for better scalability and maintainability.
 
 🔹 Performance Optimization
 Added trackBy function in blog loops to improve rendering performance and reduce unnecessary DOM re-renders.
+
 
 🛠️ Server (Backend - C# / API)
 
