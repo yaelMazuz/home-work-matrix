@@ -40,8 +40,9 @@ Fixed incorrect calculation of TOTAL_CALLS value.
 
 🚀 Result
 These improvements resulted in:
-Better performance on the client side
-Cleaner and more maintainable backend architecture
-Improved scalability
-Reduced redundant API calls
-Enhanced user experience with proper validation and UI feedback
+
+🔹Better performance on the client side
+🔹Cleaner and more maintainable backend architecture
+🔹Improved scalability
+🔹Reduced redundant API calls
+🔹Enhanced user experience with proper validation and UI feedback
