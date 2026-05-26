@@ -18,6 +18,7 @@ export class BlogService {
   getPostById(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
+  
   createPost(post:any): Observable<any> {
     return this.http.post('http://localhost:5177/api/posts',post);
   }

@@ -31,29 +31,47 @@ namespace BrokenBlogApi.Services
         }
 
         //Get post with author
-        public object? GetPostWithAuthor(int id)
+        public PostDto? GetPostWithAuthor(int id)
         {
             var post = GetById(id);
             if (post == null) return null;
 
             var author = Authors.FirstOrDefault(a => a.Id == post.AuthorId);
 
-            return new
+            return new PostDto
             {
-                post.Id,
-                post.Title,
-                post.Description,
-                post.Content,
+                Id = post.Id,
+                Title = post.Title,
+                Description = post.Description,
+                Content = post.Content,
                 AuthorName = author?.Name
             };
         }
 
         //Create new  post
-        public BlogPost Create(BlogPost post)
+        public PostDto Create(BlogPost post)
         {
-            post.Id = Posts.Count + 1;
-            Posts.Add(post);
-            return post;
+           
+
+            var newPost = new BlogPost
+            {
+                Id = Posts.Count == 0 ? 1 : Posts.Max(x => x.Id) + 1,
+                Title = post.Title,
+                Description = post.Description,
+                Content = post.Content,
+                AuthorId= post.AuthorId
+            };
+
+            Posts.Add(newPost);
+
+            return new PostDto
+            {
+                Id = newPost.Id,
+                Title = newPost.Title,
+                Description = newPost.Description,
+                Content = newPost.Content,
+                AuthorName = "ghfh"
+            };
         }
     }
 }

@@ -22,7 +22,7 @@ namespace BrokenBlogApi.Controllers
         public IActionResult GetPosts()
         {
             var posts= _postsService.GetAll();
-            totalCalls += posts.Count; 
+            totalCalls ++; 
             return Ok(posts);
         }
 
@@ -42,22 +42,13 @@ namespace BrokenBlogApi.Controllers
         [HttpPost]
         public IActionResult CreatePost([FromBody] BlogPost post)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var created = _postsService.Create(post);
             return Ok(created);
         }
     }
 
-    //public class BlogPost
-    //{
-    //    public int Id { get; set; }
-    //    public string Title { get; set; }=string.Empty;
-    //    public string Description { get; set; }=string.Empty;
-    //    public string Content { get; set; }=string.Empty;
-    //     public int AuthorId { get; set; }
-    //}
-    // public class Author
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; } = string.Empty;
-    //}
+ 
 }
