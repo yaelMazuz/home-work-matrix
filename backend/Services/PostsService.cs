@@ -30,6 +30,7 @@ namespace BrokenBlogApi.Services
             return Posts.FirstOrDefault(p => p.Id == id);
         }
 
+
         //Get post with author
         public PostDto? GetPostWithAuthor(int id)
         {
