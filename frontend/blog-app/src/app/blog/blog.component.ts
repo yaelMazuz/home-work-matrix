@@ -11,47 +11,9 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-blog',
-  template: `
-    <h1>Blog Posts</h1>
-    <div *ngFor="let post of posts$ | async; trackBy: trackByPostId">
-    <h2>{{ post.title }}</h2>
-      <p>{{ post.description }}</p>
-      <button (click)="viewPost(post.id)">View Details</button>
-    </div>
-
-    <h1>Create New Post</h1>
-    <form [formGroup]="newPost" (ngSubmit)="createPost()">
-<div class="row title">
-  <div class="col">
-      <input formControlName="title" placeholder="Title">
-  <div *ngIf="newPost.get('title')?.touched && newPost.get('title')?.invalid">
-    Title is required (min 3 chars)
-  </div>
-  </div>
-</div>
-
-<div class="row description">
-  <div class="col">
-      <input formControlName="description" placeholder="Description">
-  </div>
-</div>
-
-<div class="row content">
-  <div class="col">
-      <textarea formControlName="content" placeholder="Content"></textarea>
-  <div *ngIf="newPost.get('content')?.touched && newPost.get('content')?.invalid">
-    Content is required (min 1 chars)
-  </div>
-  </div>
-</div>
-
-
-  <button type="submit"  [disabled]="newPost.invalid">Submit</button>
-</form>
-  
-  `,
+  templateUrl: './blog.component.html',
   standalone: true,
-   imports: [CommonModule,FormsModule, ReactiveFormsModule],
+  imports: [CommonModule,FormsModule, ReactiveFormsModule],
 })
 export class BlogComponent implements OnInit {
 
@@ -64,6 +26,7 @@ export class BlogComponent implements OnInit {
   });
   postsCount: number=0;
   posts$ :Observable<any>= this.BlogStoreService.posts$;
+
   constructor(
     private BlogStoreService:BlogStoreService,
     //private blogService: BlogService,
@@ -97,7 +60,8 @@ export class BlogComponent implements OnInit {
       //Clear form
       this.newPost.reset();
     },
-//Catch errors
+
+    //Catch errors
     error: (err) => {
       console.error('Error creating post:', err);
       alert(err.error.errors.Title);

@@ -70,7 +70,7 @@ namespace BrokenBlogApi.Services
                 Title = newPost.Title,
                 Description = newPost.Description,
                 Content = newPost.Content,
-                AuthorName = "ghfh"
+                AuthorName = null
             };
         }
     }
